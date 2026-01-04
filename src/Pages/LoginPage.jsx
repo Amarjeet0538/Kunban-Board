@@ -1,10 +1,36 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { onSubmit } from "../utils/loginFunctions";
+import { loginUser } from "../api/auth.api";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, reset } = useForm();
 	const [isSignup, setIsSignup] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
+
+	const navigate = useNavigate();
+
+	const onSubmit = async (data) => {
+		setError("");
+		setLoading(true);
+
+		try {
+			const user = await loginUser({
+				email: data.email,
+				password: data.password,
+			});
+
+			console.log("Logged in user:", user);
+			localStorage.setItem("user", JSON.stringify(user));
+			reset();
+			navigate("/");
+		} catch (err) {
+			setError(err.message);
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	return (
 		<div className="min-h-screen flex items-center justify-center">
@@ -60,11 +86,19 @@ function LoginPage() {
 						className="rounded-md border border-gray-700 bg-white text-black px-4 py-3"
 					/>
 
+					{error && <p className="text-sm text-red-600 text-center">{error}</p>}
+
 					<button
 						type="submit"
 						className="cursor-pointer rounded-md bg-violet-400 py-3  text-slate-900"
 					>
-						{isSignup ? "Sign Up" : "Sign In"}
+						{isSignup
+							? loading
+								? "Creating Account..."
+								: "Sign up"
+							: loading
+							? "Signing in..."
+							: "Sign In"}
 					</button>
 				</form>
 

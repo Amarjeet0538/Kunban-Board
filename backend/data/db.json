@@ -31,6 +31,14 @@
       "email": "rahul@example.com",
       "password": "rahul123",
       "role": "client"
+    },
+    {
+      "id": "f897ec6f-8ae5-4896-8dea-c8f0ed98cace",
+      "firstName": "Test",
+      "lastName": "User",
+      "email": "test@example.com",
+      "password": "test123",
+      "role": "client"
     }
   ],
   "tasks": [
@@ -73,6 +81,28 @@
       "assignedTo": "u2",
       "createdBy": "u1",
       "description": "Deploy on Vercel"
+    }
+  ],
+  "columns": [
+    {
+      "id": "c1",
+      "title": "TO DO",
+      "status": "todo"
+    },
+    {
+      "id": "c2",
+      "title": "IN PROGRESS",
+      "status": "in_progress"
+    },
+    {
+      "id": "c3",
+      "title": "IN REVIEW",
+      "status": "in_review"
+    },
+    {
+      "id": "c4",
+      "title": "COMPLETED",
+      "status": "completed"
     }
   ]
 }
