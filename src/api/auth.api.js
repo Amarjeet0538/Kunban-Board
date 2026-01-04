@@ -1,7 +1,7 @@
-const BASE_URL = "http://localhost:5000";
+import {BACKEND_URL} from "../utils/constants"
 
 export const loginUser = async (data) => {
-	const res = await fetch(`${BASE_URL}/api/auth/login`, {
+	const res = await fetch(`${BACKEND_URL}/api/auth/login`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),
@@ -14,3 +14,10 @@ export const loginUser = async (data) => {
 
 	return res.json();
 };
+
+// TODO : add signup
+export const signupUser = async(data) =>{
+
+}
+
+

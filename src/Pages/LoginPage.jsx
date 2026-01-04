@@ -67,7 +67,7 @@ function LoginPage() {
 					>
 						<option value="">Select...</option>
 						<option value="A">Admin</option>
-						<option value="B">Clients</option>
+						<option value="B">Client</option>
 					</select>
 
 					<input
