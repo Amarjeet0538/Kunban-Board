@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon --ignore 'data/**' --ignore '*.json' src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

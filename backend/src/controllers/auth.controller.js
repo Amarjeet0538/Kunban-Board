@@ -1,5 +1,8 @@
 import { readDB, writeDB } from "../utils/readWriteJson.js";
 import crypto from "crypto";
+import jwt from "jsonwebtoken";
+
+const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-this";
 
 export const login = (req, res) => {
 	const { email, password } = req.body;
@@ -13,12 +16,20 @@ export const login = (req, res) => {
 	}
 
 	const { password: _, ...safeUser } = user;
-	res.json(safeUser);
+
+	const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, {
+		expiresIn: "7d",
+	});
+	res.json({ ...safeUser, token });
 };
 
 export const signup = (req, res) => {
 	const db = readDB();
-
+	
+	 const existingUser = db.users.find(u => u.email === req.body.email);
+  if (existingUser) {
+    return res.status(400).json({ message: "User already exists" });
+  }
 	const newUser = {
 		id: crypto.randomUUID(),
 		...req.body,
@@ -26,6 +37,17 @@ export const signup = (req, res) => {
 
 	db.users.push(newUser);
 	writeDB(db);
+	const token = jwt.sign(
+		{ userId: newUser.id, email: newUser.email },
+		JWT_SECRET,
+		{ expiresIn: "7d" }
+	);
 
-	res.status(201).json({ message: "User created" });
+	const { password: _, ...safeUser } = newUser;
+
+	res.status(201).json({
+		message: "User created",
+		...safeUser,
+		token,
+	});
 };

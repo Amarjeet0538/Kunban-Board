@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { loginUser } from "../api/auth.api";
+import { loginUser,signupUser } from "../api/auth.api";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
@@ -10,27 +10,44 @@ function LoginPage() {
 	const [error, setError] = useState("");
 
 	const navigate = useNavigate();
+const onSubmit = async (data) => {
+  setError("");
+  setLoading(true);
 
-	const onSubmit = async (data) => {
-		setError("");
-		setLoading(true);
+  try {
+    let user;
 
-		try {
-			const user = await loginUser({
-				email: data.email,
-				password: data.password,
-			});
+    if (isSignup) {
+      user = await signupUser({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        role: data.role,
+        email: data.email,
+        password: data.password,
+      });
+    } else {
+      user = await loginUser({
+        email: data.email,
+        password: data.password,
+      });
+    }
 
-			console.log("Logged in user:", user);
-			localStorage.setItem("user", JSON.stringify(user));
-			reset();
-			navigate("/");
-		} catch (err) {
-			setError(err.message);
-		} finally {
-			setLoading(false);
-		}
-	};
+    console.log("user:", user);
+
+    localStorage.setItem("user", JSON.stringify(user));
+    if (user.token) {
+      localStorage.setItem("token", user.token);
+    }
+
+    reset();
+    navigate("/");
+
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
 	return (
 		<div className="min-h-screen flex items-center justify-center">
@@ -43,32 +60,34 @@ function LoginPage() {
 					className="mt-6 flex flex-col gap-4"
 				>
 					{isSignup && (
-						<div className="flex w-full gap-2">
-							<input
-								{...register("text")}
-								type="text"
-								placeholder="First Name"
-								required
-								className="flex-1 rounded-md border border-gray-700 bg-white text-black px-4 py-3"
-							/>
-							<input
-								{...register("text")}
-								type="text"
-								placeholder="Last Name"
-								required
-								className="flex-1 rounded-md border border-gray-700 bg-white text-black px-4 py-3"
-							/>
+						<div className="flex flex-col gap-4">
+							<div className="flex w-full gap-2">
+								<input
+									{...register("text")}
+									type="text"
+									placeholder="First Name"
+									required
+									className="flex-1 rounded-md border border-gray-700 bg-white text-black px-4 py-3"
+								/>
+								<input
+									{...register("text")}
+									type="text"
+									placeholder="Last Name"
+									required
+									className="flex-1 rounded-md border border-gray-700 bg-white text-black px-4 py-3"
+								/>
+							</div>
+								<select
+								{...register("category", { required: true })}
+								className="rounded-md border border-gray-700 bg-white text-black px-4 py-3"
+							>
+								<option value="">Select...</option>
+								<option value="A">Admin</option>
+								<option value="B">Client</option>
+							</select>
+
 						</div>
 					)}
-
-					<select
-						{...register("category", { required: true })}
-						className="rounded-md border border-gray-700 bg-white text-black px-4 py-3"
-					>
-						<option value="">Select...</option>
-						<option value="A">Admin</option>
-						<option value="B">Client</option>
-					</select>
 
 					<input
 						{...register("email")}

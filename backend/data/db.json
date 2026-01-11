@@ -39,6 +39,117 @@
       "email": "test@example.com",
       "password": "test123",
       "role": "client"
+    },
+    {
+      "id": "553e835a-4529-43cd-8400-c0d15d98dfce",
+      "firstName": "Test2",
+      "lastName": "User",
+      "email": "test2@example.com",
+      "password": "test123",
+      "role": "client"
+    },
+    {
+      "id": "41a8ad24-9e74-42fc-acf9-b7dd18a2d651",
+      "firstName": "Test3",
+      "lastName": "User",
+      "email": "admin2@example.com",
+      "password": "admin123",
+      "role": "client"
+    },
+    {
+      "id": "8310d35e-7b96-47a8-bea3-1480df838e8c",
+      "email": "admin22@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "eb0315e2-639c-477d-a097-1b5dcdd43142",
+      "email": "admindas@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "846ad2a6-efa9-4b5b-94f7-c59ab0637b09",
+      "email": "admin3@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "07df6f8e-c647-471e-bf85-68e5040b766f",
+      "email": "admin222@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "4815e584-9ec1-4a45-a59d-ff0fe1591cb8",
+      "email": "admi@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "cb70f870-83fe-4848-bdc5-9cf8cca94684",
+      "email": "admina@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "d7dfedda-584a-46cf-bec7-17fceb27ca5c",
+      "email": "adminasd@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "bbd440e1-ba7a-4414-865d-6f354972814a",
+      "email": "admindsfa@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "b9611d17-e1f2-4828-8ae8-2b859a2de835",
+      "email": "adminfg@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "174083c9-c98a-408c-a55e-23870af1da4e",
+      "email": "admisan@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "9e4acce3-4e8b-440b-9ed9-751af15d35db",
+      "email": "admdafin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "1c546f5f-d354-4b3f-b344-c16c7e872300",
+      "email": "admfaadin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "6188d5a5-ce5e-43e2-9a6f-98d29d389e90",
+      "email": "admbxfcin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "8e711bec-c13f-4a04-9093-000e5df647f2",
+      "email": "adrwemin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "0bdacea8-e5d0-480c-a19c-a3bdcaecdec3",
+      "email": "sadfsadmin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "a21d7e98-577b-43a8-97bd-3e362460bdfa",
+      "email": "adminvzxcv@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "e2120004-b226-49c0-914d-b5c162dc2c11",
+      "email": "gdfadmin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "824f4400-3787-4998-a973-f80e3d22ce9f",
+      "email": "admidasasdn@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "ef9ea52d-1f0f-468a-a3ee-d364f2b544f7",
+      "email": "admsdadasin@example.com",
+      "password": "admin123"
     }
   ],
   "tasks": [
@@ -79,6 +190,16 @@
       "startTime": "2026-01-04T15:00:00",
       "status": "completed",
       "assignedTo": "u2",
+      "createdBy": "u1",
+      "description": "Deploy on Vercel"
+    },
+    {
+      "id": "t5",
+      "title": "Deploy frontend",
+      "important": false,
+      "startTime": "2026-01-04T15:00:00",
+      "status": "completed",
+      "assignedTo": "41a8ad24-9e74-42fc-acf9-b7dd18a2d651",
       "createdBy": "u1",
       "description": "Deploy on Vercel"
     }
