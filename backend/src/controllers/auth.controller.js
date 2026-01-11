@@ -25,15 +25,19 @@ export const login = (req, res) => {
 
 export const signup = (req, res) => {
 	const db = readDB();
-	
-	 const existingUser = db.users.find(u => u.email === req.body.email);
-  if (existingUser) {
-    return res.status(400).json({ message: "User already exists" });
-  }
+
+	console.log("Signup request body:", req.body);
+
+	const existingUser = db.users.find((u) => u.email === req.body.email);
+	if (existingUser) {
+		return res.status(400).json({ message: "User already exists" });
+	}
 	const newUser = {
 		id: crypto.randomUUID(),
 		...req.body,
 	};
+
+	console.log("New user object:", newUser);
 
 	db.users.push(newUser);
 	writeDB(db);

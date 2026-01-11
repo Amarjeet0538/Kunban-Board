@@ -8,6 +8,13 @@ function Main() {
 	const [tasks, setTasks] = useState([]);
 
 	const user = JSON.parse(localStorage.getItem("user"));
+	if (user === null) {
+		return (
+			<div >
+				
+			</div>
+		);
+	}
 
 	useEffect(() => {
 		const loadTasks = async () => {
@@ -28,8 +35,9 @@ function Main() {
 				setLoading(false);
 			}
 		};
-
-		loadTasks();
+		{
+			user && loadTasks();
+		}
 	}, []);
 
 	if (loading) return <p className="px-4">Loading tasks...</p>;
