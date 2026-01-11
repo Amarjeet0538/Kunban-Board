@@ -9,11 +9,7 @@ function Main() {
 
 	const user = JSON.parse(localStorage.getItem("user"));
 	if (user === null) {
-		return (
-			<div >
-				
-			</div>
-		);
+		return <div>Hero Section</div>;
 	}
 
 	useEffect(() => {

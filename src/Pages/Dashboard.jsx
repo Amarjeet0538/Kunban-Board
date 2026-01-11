@@ -1,7 +1,7 @@
 function ClientDashboard() {
   return (
     <div>
-      Client Dashboard Component
+      Dashboard Component
     </div>
   )
 }

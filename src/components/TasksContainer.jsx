@@ -1,4 +1,7 @@
+import { Plus } from "lucide-react";
 import TasksCard from "./TasksCard";
+import VisualIndicator from "./VisualIndicator";
+import { useState } from "react";
 
 function TasksContainer({ title, status, tasks, color }) {
   const bgColorMap = {
@@ -11,6 +14,9 @@ function TasksContainer({ title, status, tasks, color }) {
   const filteredTasks = tasks.filter(
     (task) => task.status === status
   );
+	const user = JSON.parse(localStorage.getItem("user"));
+
+  cosnt [isClose,setIsClose] = useState(false)
 
   return (
     <div
@@ -27,9 +33,18 @@ function TasksContainer({ title, status, tasks, color }) {
           </p>
         ) : (
           filteredTasks.map((task) => (
-            <TasksCard key={task.id} task={task} />
+            <TasksCard key={task.id} task={task}/>
           ))
         )}
+      <VisualIndicator isVisible={isClose}/>
+
+{ user.role === "admin" && title === "TO DO" &&
+        <div className="flex gap-2 items-center justify-center w-full border rounded-md p-2 bg-white border-gray-300">
+          <Plus size={25} />
+            Create
+        </div>
+
+}
       </div>
     </div>
   );

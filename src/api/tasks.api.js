@@ -3,6 +3,7 @@ import { BACKEND_URL } from "../utils/constants";
 export const fetchTasks = async () => {
 	const user = JSON.parse(localStorage.getItem("user"));
 	const token = localStorage.getItem("token");
+
 	const res = await fetch(`${BACKEND_URL}/api/tasks`, {
 		method: "GET",
 		headers: {
@@ -18,3 +19,11 @@ export const fetchTasks = async () => {
 
 	return res.json();
 };
+
+export const addTasks = async () =>{
+
+}
+
+export const deleteTasks = async() =>{
+
+}

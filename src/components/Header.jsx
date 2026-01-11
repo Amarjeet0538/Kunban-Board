@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { User } from "lucide-react";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -24,18 +25,27 @@ function Header() {
       <h1 className="text-5xl font-bold">KOKUYO</h1>
 
       {user ? (
-        <div className="flex items-center gap-3">
-          <User size={30}/>
-          <span className="text-gray-700 font-medium text-3xl">
+        <div className="flex items-center gap-3 relative group">
+          <User size={40} className="text-white bg-cyan-600 rounded-full m-1 p-2"/>
+          <button className="text-gray-700 font-medium text-3xl" onClick={() => setIsOpen(!isOpen)}>
             {user.firstName}
-          </span>
-
-          <button
-            onClick={handleLogout}
-            className="border border-gray-300 py-2 px-4 rounded-md bg-violet-400 text-white hover:bg-violet-500 text-2xl"
-          >
-            Logout
           </button>
+          {isOpen &&
+            <div className="absolute top-full right-0 z-20 w-40 text-center p-5 border border-gray-300 rounded-md bg-white text-black mt-2 shadow-lg">
+              <p onClick={() => {navigate('/profile')}}
+                  className='cursor-pointer text-m'>
+                  My Account
+              </p>
+              <hr className='my-2 border-t border-black'/>
+              <button
+                onClick={handleLogout}
+                className=" py-2 px-1 w-full  hover:bg-red-500 hover:text-white rounded-md  text-md cursor-pointer"
+              >
+                Logout
+              </button>
+          </div>
+          }
+
         </div>
       ) : (
         <Link
