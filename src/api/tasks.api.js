@@ -39,12 +39,12 @@ export const createTask = async (taskData) => {
 	return res.json();
 };
 
-export const deleteTasks = async(taskId) =>{
+export const deleteTasks = async (taskId) => {
 	const user = JSON.parse(localStorage.getItem("user"));
-  const token = localStorage.getItem("token");
+	const token = localStorage.getItem("token");
 
-	const res = await fetch(`${BACKEND_URL}/api/tasks/${taskId}`,{
-		method:"DELETE",
+	const res = await fetch(`${BACKEND_URL}/api/tasks/${taskId}`, {
+		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
 			Authorization: `Bearer ${user?.token}`,
@@ -57,11 +57,24 @@ export const deleteTasks = async(taskId) =>{
 	}
 
 	return res.json();
-}
+};
 
+export const updateTasks = async (taskId, updatedFields) => {
+	const user = JSON.parse(localStorage.getItem("user"));
+	const token = localStorage.getItem("token");
 
+	const response = await fetch(`${BACKEND_URL}/api/tasks/${taskId}`, {
+		method: "PATCH",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${user?.token}`,
+		},
+		body: JSON.stringify(updatedFields),
+	});
 
-export const updateTasks = async () => {
+	if (!response.ok) {
+		throw new Error("Failed to update task");
+	}
 
-
-}
+	return await response.json();
+};

@@ -47,20 +47,54 @@ export const createTask = (req, res) => {
 		const db = readDB();
 		console.log("Database read successfully, tasks:");
 		const newTask = {
-      id: crypto.randomUUID(),
-      ...req.body,
-      startTime: new Date().toLocaleTimeString(),
-    };
+			id: crypto.randomUUID(),
+			...req.body,
+			startTime: new Date().toLocaleTimeString(),
+		};
 
-    db.tasks?.push(newTask);
-		console.log("Task pushed successfully")
-    writeDB(db);
+		db.tasks?.push(newTask);
+		console.log("Task pushed successfully");
+		writeDB(db);
 
-    res.status(201).json(newTask);
+		res.status(201).json(newTask);
 	} catch (error) {
 		console.error("Error in createTask:", error.message);
 		res
 			.status(500)
 			.json({ message: "Failed to create task", error: error.message });
+	}
+};
+
+export const updateTask = (req, res) => {
+	try {
+		const { id } = req.params;
+		const updates = req.body;
+		console.log(`PATCH /api/tasks/${id} - Request received`);
+
+		const db = readDB();
+
+		const taskIndex = db.tasks.findIndex((task) => task.id === id);
+
+		if (taskIndex === -1) {
+			console.log(`Task with id ${id} not found`);
+			return res.status(404).json({ message: "Task not found" });
+		}
+
+		const updatedTask = {
+			...db.tasks[taskIndex],
+			...updates,
+		};
+
+		db.tasks[taskIndex] = updatedTask;
+		writeDB(db);
+
+		console.log("Task updated successfully");
+
+		res.json(updatedTask);
+	} catch (error) {
+		console.error("Error in updateTask:", error.message);
+		res
+			.status(500)
+			.json({ message: "Failed to update task", error: error.message });
 	}
 };

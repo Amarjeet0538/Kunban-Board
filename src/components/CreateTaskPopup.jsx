@@ -62,7 +62,7 @@ function CreateTaskPopup({ onClose,tasks,setTasks }) {
 				<textarea
 					{...register("description")}
 					placeholder="Description"
-					className="flex-1 resize-none text-xl p-2 rounded-sm border-2 border-gray-300 align-top"
+					className="flex-1 resize-none text-xl p-2 rounded-sm border-2 focus:outline-none  border-gray-300  align-top"
 				/>
 				<label>
 					<input type="checkbox" {...register("important")} className="scale-130" />
