@@ -1,8 +1,7 @@
 import { BACKEND_URL } from "../utils/constants";
-const user = JSON.parse(localStorage.getItem("user"));
 
 export const fetchTasks = async () => {
-
+	const user = JSON.parse(localStorage.getItem("user"));
 	const res = await fetch(`${BACKEND_URL}/api/tasks`, {
 		method: "GET",
 		headers: {
@@ -19,17 +18,26 @@ export const fetchTasks = async () => {
 	return res.json();
 };
 
-export const addTasks = async () =>{
-	const res = await fetch(`${BACKEND_URL}/api/tasks`,{
+export const createTask = async (taskData) => {
+	const user = JSON.parse(localStorage.getItem("user"));
+	const token = localStorage.getItem("token");
 
-	})
+	const res = await fetch(`${BACKEND_URL}/api/tasks`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${token || user?.token}`,
+		},
+		credentials: "include",
+		body: JSON.stringify(taskData),
+	});
 
 	if (!res.ok) {
-		throw new Error("Failed to add tasks");
+		throw new Error("Failed to create task");
 	}
 
 	return res.json();
-}
+};
 
 export const deleteTasks = async(taskId) =>{
 	const user = JSON.parse(localStorage.getItem("user"));

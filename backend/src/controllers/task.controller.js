@@ -22,7 +22,7 @@ export const deleteTask = (req, res) => {
 		console.log("Database read successfully, tasks:");
 
 		const taskIndex = db?.tasks?.findIndex((wannaBe) => wannaBe.id === id);
-		console.log("The task we want to delete"+ taskIndex)
+		console.log("The task index we want to delete " + taskIndex);
 
 		if (taskIndex === -1) {
 			return res.status(404).json({ message: "Task not found" });
@@ -41,19 +41,26 @@ export const deleteTask = (req, res) => {
 	}
 };
 
+export const createTask = (req, res) => {
+	try {
+		console.log("POST /api/tasks - Request received");
+		const db = readDB();
+		console.log("Database read successfully, tasks:");
+		const newTask = {
+      id: crypto.randomUUID(),
+      ...req.body,
+      startTime: new Date().toLocaleTimeString(),
+    };
 
-// export const createTask = (req,res) => {
-// 	try{
-// 		console.log("GET /api/tasks - Request received");
-// 		const db = readDB();
-// 		console.log("Database read successfully, tasks:");
+    db.tasks?.push(newTask);
+		console.log("Task pushed successfully")
+    writeDB(db);
 
-
-// 		res.json(newTask)
-// 	}catch(error){
-// 		console.error("Error in createTask:", error.message);
-// 		res
-// 			.status(500)
-// 			.json({ message: "Failed to create task", error: error.message });
-// 	}
-// }
+    res.status(201).json(newTask);
+	} catch (error) {
+		console.error("Error in createTask:", error.message);
+		res
+			.status(500)
+			.json({ message: "Failed to create task", error: error.message });
+	}
+};

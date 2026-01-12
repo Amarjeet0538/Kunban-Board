@@ -139,38 +139,6 @@
       "description": "Gather feedback from 5 beta testers regarding the new navigation"
     },
     {
-      "id": "t11",
-      "title": "Refactor state management",
-      "important": false,
-      "startTime": "2026-01-07T09:30:00",
-      "status": "in_progress",
-      "assignedTo": {
-        "id": "u4",
-        "firstName": "Rahul",
-        "lastName": "Verma",
-        "email": "rahul@example.com",
-        "role": "client"
-      },
-      "createdBy": "u1",
-      "description": "Migrate from Context API to Redux Toolkit for complex flows"
-    },
-    {
-      "id": "t13",
-      "title": "Security audit",
-      "important": true,
-      "startTime": "2026-01-08T10:00:00",
-      "status": "todo",
-      "assignedTo": {
-        "id": "u3",
-        "firstName": "Jane",
-        "lastName": "Smith",
-        "email": "jane@example.com",
-        "role": "client"
-      },
-      "createdBy": "u1",
-      "description": "Check for XSS vulnerabilities and dependency updates"
-    },
-    {
       "id": "t14",
       "title": "Create marketing assets",
       "important": false,
@@ -201,6 +169,87 @@
       },
       "createdBy": "u1",
       "description": "Confirm subscription features with the sales team"
+    },
+    {
+      "id": "fb15dbfd-eb1b-4bb7-a70f-08fa52236df6",
+      "title": "Integrate Stripe Payments",
+      "important": true,
+      "startTime": "2026-01-10T09:00:00",
+      "status": "todo",
+      "assignedTo": {
+        "id": "u4",
+        "firstName": "Rahul",
+        "lastName": "Verma",
+        "email": "rahul@example.com",
+        "role": "client"
+      },
+      "createdBy": "u1",
+      "description": "Set up payment intents and webhooks for the checkout flow",
+      "createdAt": "1/12/2026, 3:33:10 PM"
+    },
+    {
+      "id": "bd5259e1-899d-4131-aa2c-b6ca8ab075de",
+      "title": "Hello",
+      "important": true,
+      "status": "todo",
+      "assignedTo": {
+        "id": "u1",
+        "firstName": "Amit",
+        "lastName": "Sharma",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      "createdBy": "{\"id\":\"u1\",\"firstName\":\"Amit\",\"lastName\":\"Sharma\",\"email\":\"admin@example.com\",\"role\":\"admin\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1MSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NjgyMTQ2NzcsImV4cCI6MTc2ODgxOTQ3N30.cJb2bFI8HtzjLVyykwcIdCo-MO8BifqDmHjeIaCdri0\"}",
+      "description": "djhjds",
+      "startTime": "5:08:32 PM"
+    },
+    {
+      "id": "df2597f8-466c-4d6a-83ad-aa67c7d4bf21",
+      "title": "Add some good ui ",
+      "important": true,
+      "status": "todo",
+      "assignedTo": {
+        "id": "u1",
+        "firstName": "Amit",
+        "lastName": "Sharma",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      "createdBy": "{\"id\":\"u1\",\"firstName\":\"Amit\",\"lastName\":\"Sharma\",\"email\":\"admin@example.com\",\"role\":\"admin\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1MSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NjgyMTgzOTIsImV4cCI6MTc2ODgyMzE5Mn0.NB7Srre14C2eF77qvSneHhud7AxRx0I1APCGW7kirFE\"}",
+      "description": "this is a basic need",
+      "startTime": "5:48:20 PM"
+    },
+    {
+      "id": "f6affc74-1b63-4d84-b743-164d0b31cdbe",
+      "title": "titler",
+      "important": false,
+      "status": "todo",
+      "assignedTo": {
+        "id": "u1",
+        "firstName": "Amit",
+        "lastName": "Sharma",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      "createdBy": "{\"id\":\"u1\",\"firstName\":\"Amit\",\"lastName\":\"Sharma\",\"email\":\"admin@example.com\",\"role\":\"admin\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1MSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NjgyMTgzOTIsImV4cCI6MTc2ODgyMzE5Mn0.NB7Srre14C2eF77qvSneHhud7AxRx0I1APCGW7kirFE\"}",
+      "description": "des\n",
+      "startTime": "5:58:54 PM"
+    },
+    {
+      "id": "d59ce37e-4c8b-4419-9cc2-f99a15edaf1d",
+      "title": "sadas",
+      "important": false,
+      "status": "todo",
+      "assignedTo": {
+        "id": "u1",
+        "firstName": "Amit",
+        "lastName": "Sharma",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      "createdBy": "{\"id\":\"u1\",\"firstName\":\"Amit\",\"lastName\":\"Sharma\",\"email\":\"admin@example.com\",\"role\":\"admin\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1MSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3NjgyMTgzOTIsImV4cCI6MTc2ODgyMzE5Mn0.NB7Srre14C2eF77qvSneHhud7AxRx0I1APCGW7kirFE\"}",
+      "description": "adsas",
+      "startTime": "6:01:34 PM"
     }
   ],
   "columns": [
