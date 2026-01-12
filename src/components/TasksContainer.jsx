@@ -1,9 +1,10 @@
 import { Plus } from "lucide-react";
 import TasksCard from "./TasksCard";
-import VisualIndicator from "./VisualIndicator";
 import { useState } from "react";
+import { addTasks,deleteTasks } from "../api/tasks.api";
 
-function TasksContainer({ title, status, tasks, color }) {
+
+function TasksContainer({ title, status,setTasks , tasks, color }) {
   const bgColorMap = {
     blue: "bg-blue-100 border-blue-300",
     gray: "bg-gray-100 border-gray-300",
@@ -16,7 +17,15 @@ function TasksContainer({ title, status, tasks, color }) {
   );
 	const user = JSON.parse(localStorage.getItem("user"));
 
-  cosnt [isClose,setIsClose] = useState(false)
+   const handleDelete = async (taskId) => {
+    try{
+      await deleteTasks(taskId);
+      setTasks(tasks.filter(task => task.id !== taskId));
+    }catch(err){
+      console.error('Failed to delete task:', err);
+
+    }
+  }
 
   return (
     <div
@@ -26,20 +35,20 @@ function TasksContainer({ title, status, tasks, color }) {
         {title}
       </h1>
 
-      <div className="flex-1 overflow-y-auto flex flex-col gap-3">
+      <div className="flex-1 overflow-y-auto flex flex-col gap-2">
         {filteredTasks.length === 0 ? (
           <p className="text-sm text-gray-500 text-center">
             No tasks
           </p>
         ) : (
           filteredTasks.map((task) => (
-            <TasksCard key={task.id} task={task}/>
+            <TasksCard key={task.id} task={task} handleDelete= {handleDelete}/>
           ))
         )}
-      <VisualIndicator isVisible={isClose}/>
+
 
 { user.role === "admin" && title === "TO DO" &&
-        <div className="flex gap-2 items-center justify-center w-full border rounded-md p-2 bg-white border-gray-300">
+        <div className="flex gap-2 items-center justify-center w-full border rounded-md p-2 bg-white border-gray-300 cursor-pointer " onClick={addTasks}>
           <Plus size={25} />
             Create
         </div>

@@ -75,26 +75,10 @@
   ],
   "tasks": [
     {
-      "id": "t1",
-      "title": "Design login page",
-      "important": true,
-      "startTime": "2026-01-03T10:00:00",
-      "status": "todo",
-      "assignedTo": {
-        "id": "u2",
-        "firstName": "John",
-        "lastName": "Doe",
-        "email": "john@example.com",
-        "role": "client"
-      },
-      "createdBy": "u1",
-      "description": "Create UI for login and signup page"
-    },
-    {
-      "id": "t2",
-      "title": "Implement auth API",
-      "important": true,
-      "startTime": "2026-01-03T12:00:00",
+      "id": "t7",
+      "title": "Update API documentation",
+      "important": false,
+      "startTime": "2026-01-05T11:00:00",
       "status": "in_progress",
       "assignedTo": {
         "id": "u3",
@@ -104,30 +88,14 @@
         "role": "client"
       },
       "createdBy": "u1",
-      "description": "Basic login and signup with validation"
+      "description": "Ensure Swagger docs match the latest endpoint changes"
     },
     {
-      "id": "t3",
-      "title": "Review UI components",
-      "important": false,
-      "startTime": "2026-01-04T09:00:00",
-      "status": "in_review",
-      "assignedTo": {
-        "id": "u4",
-        "firstName": "Rahul",
-        "lastName": "Verma",
-        "email": "rahul@example.com",
-        "role": "client"
-      },
-      "createdBy": "u1",
-      "description": "Check consistency and spacing"
-    },
-    {
-      "id": "t4",
-      "title": "Deploy frontend",
-      "important": false,
-      "startTime": "2026-01-04T15:00:00",
-      "status": "completed",
+      "id": "t8",
+      "title": "Fix responsive layout bugs",
+      "important": true,
+      "startTime": "2026-01-05T14:30:00",
+      "status": "todo",
       "assignedTo": {
         "id": "u2",
         "firstName": "John",
@@ -136,14 +104,14 @@
         "role": "client"
       },
       "createdBy": "u1",
-      "description": "Deploy on Vercel"
+      "description": "Resolve overlapping elements on mobile screens for the dashboard"
     },
     {
-      "id": "t5",
-      "title": "Deploy frontend",
+      "id": "t9",
+      "title": "Optimize database queries",
       "important": false,
-      "startTime": "2026-01-04T15:00:00",
-      "status": "completed",
+      "startTime": "2026-01-06T10:00:00",
+      "status": "in_review",
       "assignedTo": {
         "id": "41a8ad24-9e74-42fc-acf9-b7dd18a2d651",
         "firstName": "Test3",
@@ -152,7 +120,87 @@
         "role": "client"
       },
       "createdBy": "u1",
-      "description": "Deploy on Vercel"
+      "description": "Add indexes to user_logs table to speed up search"
+    },
+    {
+      "id": "t10",
+      "title": "Conduct user testing",
+      "important": true,
+      "startTime": "2026-01-06T13:00:00",
+      "status": "todo",
+      "assignedTo": {
+        "id": "f897ec6f-8ae5-4896-8dea-c8f0ed98cace",
+        "firstName": "Test",
+        "lastName": "User",
+        "email": "test@example.com",
+        "role": "client"
+      },
+      "createdBy": "u1",
+      "description": "Gather feedback from 5 beta testers regarding the new navigation"
+    },
+    {
+      "id": "t11",
+      "title": "Refactor state management",
+      "important": false,
+      "startTime": "2026-01-07T09:30:00",
+      "status": "in_progress",
+      "assignedTo": {
+        "id": "u4",
+        "firstName": "Rahul",
+        "lastName": "Verma",
+        "email": "rahul@example.com",
+        "role": "client"
+      },
+      "createdBy": "u1",
+      "description": "Migrate from Context API to Redux Toolkit for complex flows"
+    },
+    {
+      "id": "t13",
+      "title": "Security audit",
+      "important": true,
+      "startTime": "2026-01-08T10:00:00",
+      "status": "todo",
+      "assignedTo": {
+        "id": "u3",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane@example.com",
+        "role": "client"
+      },
+      "createdBy": "u1",
+      "description": "Check for XSS vulnerabilities and dependency updates"
+    },
+    {
+      "id": "t14",
+      "title": "Create marketing assets",
+      "important": false,
+      "startTime": "2026-01-08T14:00:00",
+      "status": "in_review",
+      "assignedTo": {
+        "id": "553e835a-4529-43cd-8400-c0d15d98dfce",
+        "firstName": "Test2",
+        "lastName": "User",
+        "email": "test2@example.com",
+        "role": "client"
+      },
+      "createdBy": "u1",
+      "description": "Design social media banners for the product launch"
+    },
+    {
+      "id": "t15",
+      "title": "Finalize pricing tiers",
+      "important": true,
+      "startTime": "2026-01-09T11:00:00",
+      "status": "completed",
+      "assignedTo": {
+        "id": "u1",
+        "firstName": "Amit",
+        "lastName": "Sharma",
+        "email": "admin@example.com",
+        "role": "admin"
+      },
+      "createdBy": "u1",
+      "description": "Confirm subscription features with the sales team"
     }
   ],
   "columns": [

@@ -41,16 +41,20 @@ function Main() {
 
 	return (
 		<div className="flex-1 flex gap-4 px-4">
-			<TasksContainer title="TO DO" status="todo" tasks={tasks} color="blue" />
+			<TasksContainer title="TO DO" status="todo" tasks={tasks}
+			setTasks = {setTasks}
+			 color="blue" />
 			<TasksContainer
 				title="IN PROGRESS"
 				status="in_progress"
 				tasks={tasks}
+				setTasks = {setTasks}
 				color="gray"
 			/>
 			<TasksContainer
 				title="IN REVIEW"
 				status="in_review"
+				setTasks = {setTasks}
 				tasks={tasks}
 				color="red"
 			/>
@@ -58,6 +62,7 @@ function Main() {
 				title="COMPLETED"
 				status="completed"
 				tasks={tasks}
+				setTasks = {setTasks}
 				color="lime"
 			/>
 		</div>

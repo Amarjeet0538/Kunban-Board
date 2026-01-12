@@ -25,9 +25,9 @@ function Header() {
       <h1 className="text-5xl font-bold">KOKUYO</h1>
 
       {user ? (
-        <div className="flex items-center gap-3 relative group">
+        <div className="flex items-center gap-3 relative group cursor-pointer">
           <User size={40} className="text-white bg-cyan-600 rounded-full m-1 p-2"/>
-          <button className="text-gray-700 font-medium text-3xl" onClick={() => setIsOpen(!isOpen)}>
+          <button className="text-gray-700 font-medium text-3xl cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
             {user.firstName}
           </button>
           {isOpen &&
