@@ -19,7 +19,7 @@ function TasksCard({ task, handleDelete }) {
 				}}
 			>
 				{isMouseOver && (
-					<button className="absolute right-1 top-2 hover:bg-red-300 rounded-md cursor-pointer p-1 ">
+					<button className="absolute right-2 top-2 hover:bg-red-300 rounded-md cursor-pointer p-1 ">
 						<X
 							size={25}
 							onClick={() => {
