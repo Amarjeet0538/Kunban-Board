@@ -6,11 +6,16 @@ import { useState } from "react";
 function TasksCard({ task, handleDelete }) {
 	const [isMouseOver, setIsMouseOver] = useState(false);
 
+	const handleDragStart = (e) => {
+		e.dataTransfer.setData("draggedTaskId",task.id)
+	}
+
 	return (
 		<>
 			<div
 				className="bg-white border border-gray-200 rounded-md p-4 hover:shadow-md hover:border-gray-400 cursor-pointer relative "
 				draggable="true"
+				onDragStart={handleDragStart}
 				onMouseEnter={() => {
 					setIsMouseOver(true);
 				}}

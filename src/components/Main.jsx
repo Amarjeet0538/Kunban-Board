@@ -20,8 +20,7 @@ function Main() {
 				const visibleTasks =
 					user.role === "admin"
 						? allTasks
-						: // 2. FIXED: Added 'return' (or removed curly braces)
-						  allTasks.filter((task) => task.assignedTo?.id === user.id);
+						:allTasks.filter((task) => task.assignedTo?.id === user.id);
 
 				setTasks(visibleTasks);
 			} catch (error) {
@@ -33,17 +32,35 @@ function Main() {
 		if (user) loadTasks();
 	}, []);
 
+	const handleDropTask = async(taskId, newStatus) => {
+		setTasks(prevTasks =>
+    prevTasks.map(task =>
+      task.id === taskId
+        ? { ...task, status: newStatus }
+        : task
+    )
+  );
+
+	try {
+    await updateTasks(taskId, { status: newStatus });
+  } catch (err) {
+    console.error("Failed to persist task move:", err);
+  }
+	}
 
 	if (loading) return <p className="px-4">Loading tasks...</p>;
 	if (error) return <p className="px-4 text-red-500">{error}</p>;
 
 	return (
-		<div className="pb-4 flex gap-4 px-4 h-[calc(100vh-6rem)]">
+		<div className="pb-4 flex gap-4 px-4 h-[calc(100vh-6rem)]"
+
+		>
 				<TasksContainer
 					title="TO DO"
 					status="todo"
 					tasks={tasks}
 					setTasks={setTasks}
+					onDropTask={handleDropTask}
 					color="blue"
 				/>
 				<TasksContainer
@@ -51,6 +68,7 @@ function Main() {
 					status="in_progress"
 					tasks={tasks}
 					setTasks={setTasks}
+					onDropTask={handleDropTask}
 					color="gray"
 				/>
 				<TasksContainer
@@ -58,6 +76,7 @@ function Main() {
 					status="in_review"
 					setTasks={setTasks}
 					tasks={tasks}
+					onDropTask={handleDropTask}
 					color="red"
 				/>
 				<TasksContainer
@@ -65,6 +84,7 @@ function Main() {
 					status="completed"
 					tasks={tasks}
 					setTasks={setTasks}
+					onDropTask={handleDropTask}
 					color="lime"
 				/>
 

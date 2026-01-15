@@ -5,8 +5,9 @@ import { deleteTasks } from "../api/tasks.api";
 import CreateTaskPopup from "./CreateTaskPopup";
 
 
-function TasksContainer({ title, status, setTasks, tasks, color }) {
+function TasksContainer({ title, status, setTasks, tasks,onDropTask, color }) {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
+	const [isOver, setIsOver] = useState(false);
 
 	const bgColorMap = {
 		blue: "bg-blue-100 border-blue-300",
@@ -27,12 +28,29 @@ function TasksContainer({ title, status, setTasks, tasks, color }) {
 		}
 	};
 
+	const handleDrop = (e) => {
+		e.preventDefault(); 
+		setIsOver(false);
+		const taskId = e.dataTransfer.getData("draggedTaskId")
+		console.log("dropped on " + status)
+		onDropTask(taskId,status);
+	}
+
+	const allowDrop = (e) => {
+		e.preventDefault();
+		setIsOver(true);
+	}
+
 	return (
 		<div
 			className={`relative w-4/12 px-2 py-2 rounded-md border flex flex-col  ${bgColorMap[color]}`}
 		>
 			<h1 className="pb-3 text-lg font-semibold text-gray-700">{title}</h1>
-			<div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden flex flex-col gap-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+			<div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden flex flex-col gap-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+			onDragOver={allowDrop}
+			onDragLeave={(e)=> {setIsOver(false)}}
+			onDrop={handleDrop}
+			>
 					{filteredTasks.length === 0 ? (
 					<p className="text-sm text-gray-500 text-center">No tasks</p>
 				) : (
