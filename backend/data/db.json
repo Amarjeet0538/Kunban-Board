@@ -183,7 +183,7 @@
       "id": "bd5259e1-899d-4131-aa2c-b6ca8ab075de",
       "title": "Hello",
       "important": true,
-      "status": "completed",
+      "status": "in_progress",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -230,7 +230,7 @@
       "id": "97657789-c0cc-4fb9-8cc9-cfcc71fe71dd",
       "title": "ojiu",
       "important": true,
-      "status": "in_progress",
+      "status": "todo",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -246,7 +246,7 @@
       "id": "a46e211f-45af-4701-bd38-05c09dd3f973",
       "title": "dsa",
       "important": false,
-      "status": "todo",
+      "status": "completed",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
