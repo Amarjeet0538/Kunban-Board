@@ -175,7 +175,7 @@
       "id": "bd5259e1-899d-4131-aa2c-b6ca8ab075de",
       "title": "Hello",
       "important": true,
-      "status": "in_progress",
+      "status": "completed",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -191,7 +191,7 @@
       "id": "df2597f8-466c-4d6a-83ad-aa67c7d4bf21",
       "title": "Add some good ui ",
       "important": true,
-      "status": "in_progress",
+      "status": "completed",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -222,7 +222,7 @@
       "id": "97657789-c0cc-4fb9-8cc9-cfcc71fe71dd",
       "title": "ojiu",
       "important": true,
-      "status": "completed",
+      "status": "in_review",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -238,7 +238,7 @@
       "id": "a46e211f-45af-4701-bd38-05c09dd3f973",
       "title": "dsa",
       "important": false,
-      "status": "completed",
+      "status": "in_progress",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",

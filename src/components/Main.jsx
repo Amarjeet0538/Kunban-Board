@@ -1,6 +1,7 @@
 import TasksContainer from "./TasksContainer";
 import { useEffect, useState } from "react";
 import { fetchTasks, updateTasks } from "../api/tasks.api";
+import Hero from "./Hero";
 
 function Main() {
 	const [loading, setLoading] = useState(true);
@@ -9,7 +10,7 @@ function Main() {
 
 	const user = JSON.parse(localStorage.getItem("user"));
 	if (user === null) {
-		return <div>Hero Section</div>;
+		return <Hero/>
 	}
 
 	useEffect(() => {
