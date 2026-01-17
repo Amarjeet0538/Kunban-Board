@@ -71,6 +71,14 @@
       "role": "client",
       "email": "admdfsaafin@example.com",
       "password": "admin123"
+    },
+    {
+      "id": "b64791a5-51ac-4935-9be3-15604e758c35",
+      "firstName": "Dhar",
+      "lastName": "mesg",
+      "role": "client",
+      "email": "admiascn@example.com",
+      "password": "admin123"
     }
   ],
   "tasks": [
@@ -159,7 +167,7 @@
       "title": "Integrate Stripe Payments",
       "important": true,
       "startTime": "2026-01-10T09:00:00",
-      "status": "todo",
+      "status": "completed",
       "assignedTo": {
         "id": "u4",
         "firstName": "Rahul",
@@ -191,7 +199,7 @@
       "id": "df2597f8-466c-4d6a-83ad-aa67c7d4bf21",
       "title": "Add some good ui ",
       "important": true,
-      "status": "completed",
+      "status": "in_review",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -222,7 +230,7 @@
       "id": "97657789-c0cc-4fb9-8cc9-cfcc71fe71dd",
       "title": "ojiu",
       "important": true,
-      "status": "in_review",
+      "status": "in_progress",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -238,7 +246,7 @@
       "id": "a46e211f-45af-4701-bd38-05c09dd3f973",
       "title": "dsa",
       "important": false,
-      "status": "in_progress",
+      "status": "todo",
       "assignedTo": {
         "id": "u1",
         "firstName": "Amit",
@@ -251,9 +259,9 @@
       "startTime": "1:58:07 AM"
     },
     {
-      "id": "4abb369b-6f40-4960-9a33-dd94ecfae540",
-      "title": "sada",
-      "important": true,
+      "id": "4bf8efa3-b3d7-467f-82d7-e052a3a1772b",
+      "title": "sdfsd",
+      "important": false,
       "status": "todo",
       "assignedTo": {
         "id": "u1",
@@ -262,9 +270,9 @@
         "email": "admin@example.com",
         "role": "admin"
       },
-      "createdBy": "{\"id\":\"u1\",\"firstName\":\"Amit\",\"lastName\":\"Sharma\",\"email\":\"admin@example.com\",\"role\":\"admin\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1MSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3Njg0NzUyMzksImV4cCI6MTc2OTA4MDAzOX0.amfKsBwfeRYx_4AG5w4SJWT57hKcbH7JJoAFQ3WJAss\"}",
-      "description": "sadas",
-      "startTime": "4:37:41 PM"
+      "createdBy": "{\"id\":\"u1\",\"firstName\":\"Amit\",\"lastName\":\"Sharma\",\"email\":\"admin@example.com\",\"role\":\"admin\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1MSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE3Njg2NDY5MzgsImV4cCI6MTc2OTI1MTczOH0.FQfFEzFxwec4FKZux3qJCwiVRUmK46bRZiDGrOG96_8\"}",
+      "description": "dsfsd",
+      "startTime": "4:19:07 PM"
     }
   ],
   "columns": [
