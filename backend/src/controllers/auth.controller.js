@@ -2,13 +2,13 @@ import { readDB, writeDB } from "../utils/readWriteJson.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-this";
+const JWT_SECRET = process.env.JWT_SECRET || "kanban_secret";
 
 export const login = (req, res) => {
 	const { email, password } = req.body;
 	const db = readDB();
 	const user = db.users.find(
-		(guy) => guy.email === email && guy.password === password
+		(guy) => guy.email === email && guy.password === password,
 	);
 
 	if (!user) {
@@ -44,7 +44,7 @@ export const signup = (req, res) => {
 	const token = jwt.sign(
 		{ userId: newUser.id, email: newUser.email },
 		JWT_SECRET,
-		{ expiresIn: "7d" }
+		{ expiresIn: "7d" },
 	);
 
 	const { password: _, ...safeUser } = newUser;

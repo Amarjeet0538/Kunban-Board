@@ -5,7 +5,7 @@ import { deleteTasks } from "../api/tasks.api";
 import CreateTaskPopup from "./CreateTaskPopup";
 
 
-function TasksContainer({ title, status, setTasks, tasks,onDropTask, color }) {
+function TasksContainer({ title, status,users, setTasks, tasks,onDropTask, color }) {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
 	const [isOver, setIsOver] = useState(false);
 
@@ -29,7 +29,7 @@ function TasksContainer({ title, status, setTasks, tasks,onDropTask, color }) {
 	};
 
 	const handleDrop = (e) => {
-		e.preventDefault(); 
+		e.preventDefault();
 		setIsOver(false);
 		const taskId = e.dataTransfer.getData("draggedTaskId")
 		console.log("dropped on " + status)
@@ -80,6 +80,7 @@ function TasksContainer({ title, status, setTasks, tasks,onDropTask, color }) {
 					<CreateTaskPopup
 						onClose={() => setIsPopupOpen(false)}
 						tasks={tasks}
+						users={users}
 						setTasks={setTasks}
 					/>
 				</div>

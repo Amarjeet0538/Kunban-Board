@@ -46,22 +46,36 @@ export const createTask = (req, res) => {
 		console.log("POST /api/tasks - Request received");
 		const db = readDB();
 		console.log("Database read successfully, tasks:");
+		const { title, description, status, important, assignedTo, createdBy } =
+			req.body;
+
+		const assignee = db.users.find((u) => u.id === assignedTo);
+		if (!assignee) {
+			return res.status(400).json({ message: "Assigned user not found" });
+		}
+
 		const newTask = {
 			id: crypto.randomUUID(),
-			...req.body,
-			startTime: new Date().toLocaleTimeString(),
+			title,
+			description,
+			status,
+			important,
+			assignedTo: {
+				id: assignee.id,
+				firstName: assignee.firstName,
+				lastName: assignee.lastName,
+				role: assignee.role,
+			},
+			createdBy,
+			startTime: new Date().toISOString(),
 		};
 
-		db.tasks?.push(newTask);
-		console.log("Task pushed successfully");
+		db?.tasks?.push(newTask);
 		writeDB(db);
 
 		res.status(201).json(newTask);
 	} catch (error) {
-		console.error("Error in createTask:", error.message);
-		res
-			.status(500)
-			.json({ message: "Failed to create task", error: error.message });
+		res.status(500).json({ message: "Failed to create task" });
 	}
 };
 
