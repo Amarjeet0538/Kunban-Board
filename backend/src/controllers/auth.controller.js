@@ -2,6 +2,7 @@ import { readDB, writeDB } from "../utils/readWriteJson.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
+const JWT_SECRET = process.env.JWT_SECRET || "kanban_secret";
 
 export const login = (req, res) => {
 	const { email, password } = req.body;
